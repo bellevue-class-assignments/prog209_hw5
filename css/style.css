@@ -1,0 +1,59 @@
+.active-page {
+    background-color: black;
+    color: white;
+}
+
+.table {
+    margin: auto;
+    width: 800px;
+}
+
+.tableRow {
+    display: table-row;
+    width: 100%;
+}
+
+.tableTitle {
+    display: table-cell;
+    width: 800px;
+}
+
+.tableName {
+    display: table-cell;
+    font-weight: bold;
+    width: 125px;
+}
+
+.tableValue {
+    display: table-cell;
+    width: 675px;
+}
+
+.tableValue2 {
+    display: table-cell;
+    width: 275px;
+}
+
+.tableValue3 {
+    display: table-cell;
+    width: 141px;
+}
+
+.tableButton {
+    display: table-cell;
+    width: 800px;
+}
+
+.tableRow,
+.tableName,
+.tableValue,
+.tableValue2 {
+    padding: 5px;
+}
+
+
+/*
+.tableRow {
+    border-color: blue;
+}
+*/
