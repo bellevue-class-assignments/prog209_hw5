@@ -26,7 +26,6 @@
   <div data-role="page" id="home">
 
     <!--   page header -->
-    <!--   page header -->
     <div data-role="header" data-theme='a'>
       <h1>My Firearms Collection</h1>
       <div data-role="navbar" data-theme='a' id="nav_bar">
@@ -79,17 +78,26 @@
 
     <!-- page content -->
     <div data-role="content" data-theme='a'>
+      <h1>Add a Firearm</h1>
       <label for="inputManufacturer">Manufacturer</label>
       <input type="text" value="" name="inputManufacturer" id="inputManufacturer" placeholder="Enter manufacturer's name"/>
       <label for="inputModel">Model</label>
       <input type="text" value="" name="inputModel" id="inputModel" placeholder="Enter model name" />
+      <label for="inputCalber">Caliber</label>
+      <select name="inputCaliber" id="inputCaliber">
+        <option value="">Select Caliber</option>
+      </select>
       <label for="inputClass">Class</label>
       <select name="inputClass" id="inputClass">
-        <option value="0">Select Class</option>
-        <option value="pistol">Pistol</option>
-        <option value="rifle">Rifle</option>
-        <option value="shotgun">Shotgun</option>
+        <option value="">Select Class</option>
+        <option value="Pistol">Pistol</option>
+        <option value="Rifle">Rifle</option>
+        <option value="Shotgun">Shotgun</option>
       </select>
+      <input type="checkbox" id="inputOwned" class="inputOwned" value="Owned">
+      <label for="inputOwned">Owned</label>
+      <input type="checkbox" id="inputWanted" class="inputWanted" value="Wanted">
+      <label for="inputWanted">Wanted</label>
       <input type="button" value="Click To Add Firearm" id="buttonAdd" data-inline="true" />
       <input type="button" value="Clear Data" id="buttonClear" data-inline="true" />
     </div>
@@ -121,8 +129,11 @@
     <!--   page content -->
     <div data-role="content" data-theme='a'>
       <p> Here are all of the firearms</p>
-      <div id="divAllFirearms"></div>
+      <div class="tableList" id="divAllFirearms">
+      <!-- list will be added here via createList() -->
+      </div>
       <input type="button" value="Sort By Manufacturer" id="buttonSortManufacturer" data-inline="true" />
+      <input type="button" value="Sort By Caliber" id="buttonSortCaliber" data-inline="true" />
       <input type="button" value="Sort By Class" id="buttonSortClass" data-inline="true" />
     </div>
 
@@ -131,7 +142,7 @@
       <h1>Copyrigtht &copy;2022 by KG7PNH</h1>
     </div>
   </div>
-  </div>
+
   <!-- End of All page ------------------------------------------------------------------->
 
   <!-- Start of Owned page ----------------------------------------------------------------->
@@ -226,8 +237,10 @@
       <p> Here are the details</p>
       <p id="oneManufacturer"></p>
       <p id="oneModel"></p>
+      <p id="oneCaliber"></p>
       <p id="oneClass"></p>
-      <input type="button" value="Trailer" id="trailer" />
+      <p id="oneOwned"></p>
+      <p id="oneWanted"></p>
     </div>
     <input type="button" value="Delete" id="delete" style="background: rgb(216, 11, 11)"/>
 

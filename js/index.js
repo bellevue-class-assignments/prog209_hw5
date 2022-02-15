@@ -1,6 +1,88 @@
 // start by creating data so we don't have to type it in each time
 let firearmArray = [];
 
+// calbers for inputCaliber
+let caliberArray = [
+    '.17 HMR',
+    '.22 Long',
+    '.22 Long Rifle',
+    '.22 Short',
+    '.22-250 Remington',
+    '.221 Fireball',
+    '.223 Remington',
+    '.240 Weatherby Magnum',
+    '.25 ACP',
+    '.250 Savage',
+    '.270 Winchester',
+    '.30-06 Springfield',
+    '.30-30 Winchester',
+    '.300 Savage',
+    '.300 Winchester Magnum',
+    '.303 British',
+    '.308 Winchester',
+    '.32 ACP',
+    '.327 Magnum',
+    '.338 Lapua Magnum',
+    '.357 Magnum',
+    '.357 SIG',
+    '.375 H&H Magnum',
+    '.375 Weatherby Magnum',
+    '.38 Special',
+    '.38 Super',
+    '.380 ACP',
+    '.40 S&W',
+    '.41 Magnum',
+    '.410 2.5" chamber',
+    '.410 3" chamber',
+    '.44 Magnum',
+    '.44 Special',
+    '.45 ACP',
+    '.45 GAP',
+    '.45 Long Colt',
+    '.450 Nitro Express',
+    '.454 Casull',
+    '.458 Winchester Magnum',
+    '.460 S&W Magnum',
+    '.460 Winchester Magnum',
+    '.465 H&H Magnum',
+    '.470 Nitro Express',
+    '.480 Ruger',
+    '.50 Action Express',
+    '.500 Magnum',
+    '.700 Nitro Express',
+    '12 gauge, 2-3/4" chamber',
+    '12 gauge, 3" chamber',
+    '12 gauge, 3-1/2" chamber',
+    '20 gauge, 2-3/4" chamber',
+    '20 gauge, 2-5/8" chamber',
+    '20 gauge, 3" chamber',
+    '5.45x18mm',
+    '5.45x39mm',
+    '5.56mm NATO',
+    '5.7x28mm FN',
+    '6mm Remington',
+    '6.5mm Creedmore',
+    '6.5mm Mannlicher-Carcano',
+    '6.5mm Mannlicher-Schoenauer',
+    '6.5mm Swedish Mauser',
+    '6.8mm Remington',
+    '7mm Nambu',
+    '7mm Weatherby-Magnum',
+    '7mm-08 Remington',
+    '7.62mm Nagant',
+    '7.62mm NATO',
+    '7.62mm Tokarev',
+    '7.65mm Mannlicher',
+    '7.62x39mm',
+    '7.62x54mmR',
+    '8mm Mauser',
+    '8mm Remington Magnum',
+    '9mm Ultra',
+    '9mm Parabellum',
+    '9mm Long',
+    '10mm Auto'
+]
+
 // random imagges
 let randomImagesArray = ['1.jpg',
     '2.jpg',
@@ -33,66 +115,63 @@ let randomImagesArray = ['1.jpg',
 
 // define a constructor to create movie objects
 let FirearmObject = function(
-        inputManufacturer,
-        inputModel,
-        inputClass,
-        inputOwned = false,
-        inputWanted = true)
-    // inputURL,
-    // inputAction = null,
-    // inputCapacity = null,
-    // inputDescription = null,
-    // inputMagazineType = null,
-    // inputLength = null,
-    // inputLengthBarrel = null,
-    // inputWeight = null,
-    // inputYearStart = null,
-    // inputYearEnd = null) 
-    {
-        this.ID = createUUID();
-        // this.Action = inputAction;
-        this.Class = inputClass;
-        // this.Capacity = inputCapacity;
-        // this.Description = inputDescription;
-        // this.Length = inputLength;
-        // this.LengthBarrel = inputLengthBarrel;
-        // this.MagazineType = inputMagazineType;
-        this.Manufacturer = inputManufacturer;
-        this.Model = inputModel;
-        this.Owned = inputOwned;
-        this.Wanted = inputWanted;
-        // this.URL = inputURL;
-        // this.Weight = inputWeight;
-        // this.YearEnd = inputYearEnd;
-        // this.YearStart = inputYearStart;
-    }
+    inputManufacturer,
+    inputModel,
+    inputClass,
+    inputCaliber,
+    inputOwned,
+    inputWanted) {
+    this.ID = createUUID();
+    // this.Action = inputAction;
+    this.Class = inputClass;
+    // this.Capacity = inputCapacity;
+    // this.Description = inputDescription;
+    // this.Length = inputLength;
+    // this.LengthBarrel = inputLengthBarrel;
+    // this.MagazineType = inputMagazineType;
+    this.Manufacturer = inputManufacturer;
+    this.Model = inputModel;
+    this.Caliber = inputCaliber;
+    this.Owned = inputOwned;
+    this.Wanted = inputWanted;
+    // this.URL = inputURL;
+    // this.Weight = inputWeight;
+    // this.YearEnd = inputYearEnd;
+    // this.YearStart = inputYearStart;
+}
 
-firearmArray.push(new FirearmObject("Hekler & Koch", "VP70Z", "Pistol"));
-firearmArray.push(new FirearmObject("Glock", "20", "Pistol"));
-firearmArray.push(new FirearmObject("Smith & Wesson", "M&P Bodyguard 380", "Pistol"));
-firearmArray.push(new FirearmObject("Springfield Armory", "XD45", "Pistol"));
+firearmArray.push(new FirearmObject("Hekler & Koch", "VP70Z", "Pistol", "9mm Parabellum", true, false));
+firearmArray.push(new FirearmObject("Glock", "20", "Pistol", "10mm Auto", true, false));
+firearmArray.push(new FirearmObject("Smith & Wesson", "M&P Bodyguard 380", "Pistol", ".380 ACP", true, false));
+firearmArray.push(new FirearmObject("Springfield Armory", "XD45", "Pistol", ".45 ACP", true, false));
+firearmArray.push(new FirearmObject("Springfield Armory", "M1A SOCOM 16 CQB RIFLE", "Rifle", ".308 Remington", false, true));
+firearmArray.push(new FirearmObject("Ruger", "Precision 26\" MLOK", "Rifle", ".338 Lapua", false, true));
+firearmArray.push(new FirearmObject("Walther", "WA 2000", "Rifle", ".300 Winchester Magnum", false, true));
+firearmArray.push(new FirearmObject("Kel-Tec", "SU-16", "Rifle", "5.56mm NATO", false, true));
+firearmArray.push(new FirearmObject("CZ", "Bren 2 MS Carbine", "Rifle", "5.56mm NATO", false, true));
 
-console.log(firearmArray);
-
-let selectedClass = null;
-// let selectedAction = null;
-// let selectedMagazine = null;
-// let selectedStart = null;
-// let selectedEnd = null;
-
+let selectedCaliber = null,
+    selectedClass = null,
+    isOwned = false,
+    isWanted = false;
 
 document.addEventListener("DOMContentLoaded", function() {
+
+    // create option elements for inputCaliber
+    generateCaliberInput();
 
     // generateSlidShow();
     createList();
 
     // add button events ************************************************************************
-
     document.getElementById("buttonAdd").addEventListener("click", function() {
         firearmArray.push(new FirearmObject(
             document.getElementById("inputManufacturer").value,
             document.getElementById("inputModel").value,
-            selectedClass)); //,
+            selectedClass,
+            selectedCaliber,
+            isOwned,
+            isWanted)); //,
         // document.getElementById("inputURL").value,
         // selectedAction,
         // document.getElementById("inputCapacity").value,
@@ -112,8 +191,20 @@ document.addEventListener("DOMContentLoaded", function() {
         document.getElementById("inputModel").value = "";
     });
 
+    $(document).bind("change", "#inputCaliber", function(event, ui) {
+        selectedCaliber = $('#inputCaliber').val();
+    });
+
     $(document).bind("change", "#inputClass", function(event, ui) {
         selectedClass = $('#inputClass').val();
+    });
+
+    $(document).bind("change", "#inputOwned", function(event, ui) {
+        isOwned = $('#inputOwned').is(':checked');
+    });
+
+    $(document).bind("change", "#inputWanted", function(event, ui) {
+        isWanted = $('#inputWanted').is(':checked');
     });
 
     // $(document).bind("change", "#inputAction", function(event, ui) {
@@ -131,9 +222,15 @@ document.addEventListener("DOMContentLoaded", function() {
         document.location.href = "index.html#ListAll"; // go back to movie list 
     });
 
-    // 2 sort button event methods
+    // 2 sort button event methodsmanufacturerTitle
     document.getElementById("buttonSortManufacturer").addEventListener("click", function() {
         firearmArray.sort(dynamicSort("Manufacturer"));
+        createList();
+        document.location.href = "index.html#ListAll";
+    });
+
+    document.getElementById("buttonSortCaliber").addEventListener("click", function() {
+        firearmArray.sort(dynamicSort("Caliber"));
         createList();
         document.location.href = "index.html#ListAll";
     });
@@ -145,32 +242,24 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
     // button on details page to view the youtube video
-    document.getElementById("trailer").addEventListener("click", function() {
-        window.open(document.getElementById("oneURL").innerHTML);
-    });
+    // document.getElementById("trailer").addEventListener("click", function() {
+    //     window.open(document.getElementById("oneURL").innerHTML);
+    // });
 
     /**
      * Event listeners for "List Owned Firearms"
      */
     document.getElementById("buttonOwnedPistol").addEventListener("click", function() {
-
         createOwnedListSubset("Pistol"); // recreate li list after removing one
     });
-
     document.getElementById("buttonOwnedRifle").addEventListener("click", function() {
-
         createOwnedListSubset("Rifle"); // recreate li list after removing one
     });
-
     document.getElementById("buttonOwnedShotgun").addEventListener("click", function() {
-
         createOwnedListSubset("Shotgun"); // recreate li list after removing one
     });
     // end of add button events ************************************************************************
 
-
-
-    // page before show code *************************************************************************
     // page before show code *************************************************************************
     $(document).on("pagebeforeshow", "#ListAll", function(event) { // have to use jQuery 
         createList();
@@ -194,27 +283,37 @@ document.addEventListener("DOMContentLoaded", function() {
         // no longer using pointer -1 now that we have real keys
         // document.getElementById("oneTitle").innerHTML = "The title is: " + firearmArray[localID-1].Title;
 
-        document.getElementById("oneTitle").innerHTML = "The title is: " + firearmArray[localID].Title;
-        document.getElementById("oneYear").innerHTML = "Year released: " + firearmArray[localID].Year;
-        document.getElementById("oneGenre").innerHTML = "Genre: " + firearmArray[localID].Genre;
-        document.getElementById("oneWoman").innerHTML = "Leading Woman: " + firearmArray[localID].Woman;
-        document.getElementById("oneMan").innerHTML = "Leading Man: " + firearmArray[localID].Man;
-        document.getElementById("oneURL").innerHTML = firearmArray[localID].URL;
+        document.getElementById("oneManufacturer").innerHTML = "Manufacturer: " + firearmArray[localID].Manufacturer;
+        document.getElementById("oneModel").innerHTML = "Model: " + firearmArray[localID].Model;
+        document.getElementById("oneCaliber").innerHTML = "Caliber: " + firearmArray[localID].Caliber;
+        document.getElementById("oneClass").innerHTML = "Class: " + firearmArray[localID].Class;
+        document.getElementById("oneOwned").innerHTML = firearmArray[localID].Owned;
+        document.getElementById("oneWanted").innerHTML = firearmArray[localID].Wanted;
     });
-
     // end of page before show code *************************************************************************
 
 });
 // end of wait until document has loaded event  *************************************************************************
 
 /**
+ * function to add calibers to inputCaliber select list
+ */
+function generateCaliberInput() {
+    let parentSelect = document.getElementById("inputCaliber");
+    for (let i = 0; i < caliberArray.length; i++) {
+        let caliberOption = document.createElement('option');
+        caliberOption.value = caliberArray[i];
+        caliberOption.innerHTML = caliberArray[i];
+        parentSelect.appendChild(caliberOption);
+    }
+}
+
+/**
  * function to generate list of slideshow images
  */
 function generateSlidShow() {
     let parent = document.getElementById("slideShow");
-    console.log(parent);
     for (let i = 0; i < randomImagesArray.length; i++) {
-        console.log(randomImagesArray[i]);
         let newDiv = document.createElement("div");
         newDiv.classList.add("slide");
         let newImg = document.createElement("img");
@@ -223,6 +322,7 @@ function generateSlidShow() {
         parent.appendChild(newDiv);
     }
 }
+
 // next 2 functions ( createList and createListSubset ) could be combined into 1 with a little work
 // such as I could pass in a variable which said which divMovieList div it should draw
 function createList() {
@@ -231,28 +331,114 @@ function createList() {
     while (divFirearmList.firstChild) { // remove any old data so don't get duplicates
         divFirearmList.removeChild(divFirearmList.firstChild);
     };
-    let ul = document.createElement('ul');
+
+    let blankTitle = document.createElement('div');
+    blankTitle.id = 'blankTitle';
+    blankTitle.classList.add('tableName');
+
+    let manufacturerTitle = document.createElement('div');
+    manufacturerTitle.id = 'manufacturerTitle';
+    manufacturerTitle.classList.add('tableName');
+    manufacturerTitle.innerHTML = 'Manufacturer';
+
+    let modelTitle = document.createElement('div');
+    modelTitle.id = 'modelTitle';
+    modelTitle.classList.add('tableName');
+    modelTitle.innerHTML = 'Model';
+
+    let caliberTitle = document.createElement('div');
+    caliberTitle.id = 'caliberTitle';
+    caliberTitle.classList.add('tableName');
+    caliberTitle.innerHTML = 'Caliber';
+
+    let classTitle = document.createElement('div');
+    classTitle.id = 'classTitle';
+    classTitle.classList.add('tableName');
+    classTitle.innerHTML = 'Class';
+
+    let ownedTitle = document.createElement('div');
+    ownedTitle.id = 'ownedTitle';
+    ownedTitle.classList.add('tableName');
+    ownedTitle.innerHTML = 'Owned?';
+
+    let wantedTitle = document.createElement('div');
+    wantedTitle.id = 'wantedTitle';
+    wantedTitle.classList.add('tableName');
+    wantedTitle.innerHTML = 'Wanted?';
+
+    let titleRow = document.createElement('div');
+    titleRow.classList.add('tableRow');
+
+    titleRow.appendChild(blankTitle);
+    titleRow.appendChild(manufacturerTitle);
+    titleRow.appendChild(modelTitle);
+    titleRow.appendChild(caliberTitle);
+    titleRow.appendChild(classTitle);
+    titleRow.appendChild(ownedTitle);
+    titleRow.appendChild(wantedTitle);
+
+    divFirearmList.appendChild(titleRow);
+
+
+    // let ul = document.createElement('ul');
     firearmArray.forEach(function(element, ) { // use handy array forEach method
-        console.log(element);
-        let li = document.createElement('li');
-        // adding a class name to each one as a way of creating a collection
-        li.classList.add('oneFirearm');
-        // use the html5 "data-parm" to encode the ID of this particular data object
-        // that we are building an li from
-        li.setAttribute("data-parm", element.ID);
-        li.innerHTML = element.Manufacturer + "  " + element.Model + " (" + element.Class + ")";
-        ul.appendChild(li);
+
+        let detailsButton = document.createElement('button');
+        detailsButton.innerText = "details";
+        detailsButton.classList.add("oneFirearm")
+        detailsButton.setAttribute("data-parm", element.ID);
+
+        let itemDetails = document.createElement('div');
+        itemDetails.classList.add('tableValue');
+        itemDetails.appendChild(detailsButton);
+
+        let itemManufacturer = document.createElement('div');
+        itemManufacturer.classList.add('tableValue');
+        itemManufacturer.innerHTML = element.Manufacturer;
+
+        let itemModel = document.createElement('div');
+        itemModel.classList.add('tableValue');
+        itemModel.innerHTML = element.Model;
+
+        let itemCaliber = document.createElement('div');
+        itemCaliber.classList.add('tableValue');
+        itemCaliber.innerHTML = element.Caliber;
+
+        let itemClass = document.createElement('div');
+        itemClass.classList.add('tableValue');
+        itemClass.innerHTML = element.Class;
+
+        let itemOwned = document.createElement('div');
+        itemOwned.classList.add('tableValue');
+        itemOwned.innerHTML = element.Owned;
+
+        let itemWanted = document.createElement('div');
+        itemWanted.classList.add('tableValue');
+        itemWanted.innerHTML = element.Wanted;
+
+        let itemRow = document.createElement('div');
+        itemRow.classList.add('tableRow');
+        itemRow.appendChild(itemDetails);
+        itemRow.appendChild(itemManufacturer);
+        itemRow.appendChild(itemModel);
+        itemRow.appendChild(itemCaliber);
+        itemRow.appendChild(itemClass);
+        itemRow.appendChild(itemOwned);
+        itemRow.appendChild(itemWanted);
+
+        divFirearmList.appendChild(itemRow);
     });
-    divFirearmList.appendChild(ul)
 
     // now we have the HTML done to display out list, 
     // next we make them active buttons
     // set up an event for each new li item, 
-    var liArray = document.getElementsByClassName("oneFirearm");
-    Array.from(liArray).forEach(function(element) {
+    var buttonArray = document.getElementsByClassName("oneFirearm");
+    Array.from(buttonArray).forEach(function(element) {
         element.addEventListener('click', function() {
             // get that data-parm we added for THIS particular li as we loop thru them
+
             var parm = this.getAttribute("data-parm"); // passing in the record.Id
+            console.log(parm);
             // get our hidden <p> and save THIS ID value in the localStorage "dictionairy"
 
 
@@ -267,6 +453,10 @@ function createList() {
 
 };
 
+/**
+ * 
+ * @param {*} whichType 
+ */
 function createListSubset(whichType) {
     // clear prior data
     var divMovieList = document.getElementById("divMovieListSubset");
@@ -316,7 +506,6 @@ function createListSubset(whichType) {
  * @param {} which 
  */
 function deleteMovie(which) {
-    console.log(which);
     let arrayPointers = GetArrayPointer(which);
     for (let i = 0; i < arrayPointers.length; i++) {
         firearmArray.splice(arrayPointers[i], 1); // remove 1 element at index 
@@ -334,8 +523,6 @@ function deleteMovie(which) {
  * @return  {int}   The index of the array corresponding to the object seached for.
  */
 function GetArrayPointer(elementValue, objectAttribute = "ID") {
-    console.log(firearmArray);
-    console.log(elementValue);
     let arrayIndexes = [];
     for (let index = 0; index < firearmArray.length; index++) {
         if (elementValue === firearmArray[index][objectAttribute]) {
